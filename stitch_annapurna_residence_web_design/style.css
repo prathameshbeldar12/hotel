@@ -1,0 +1,118 @@
+/* ==========================================================================
+   Hotel Annapurna Residence - Custom Stylesheet
+   ========================================================================== */
+
+/* Root variables & smooth behaviors */
+:root {
+  scroll-behavior: smooth;
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #fff8f4;
+}
+::-webkit-scrollbar-thumb {
+  background: #d2c4bb;
+  border: 2px solid #fff8f4;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #80756d;
+}
+
+/* Base Body Styles */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Luxury Soft Shadows */
+.shadow-luxury {
+  box-shadow: 0 20px 40px -15px rgba(50, 34, 20, 0.08), 
+              0 0 0 1px rgba(128, 117, 109, 0.05);
+  transition: var(--transition-smooth);
+}
+.shadow-luxury:hover {
+  box-shadow: 0 30px 60px -20px rgba(50, 34, 20, 0.15), 
+              0 0 0 1px rgba(119, 90, 25, 0.15);
+}
+
+/* Glassmorphism Header Panel */
+.glass-header {
+  background: rgba(255, 248, 244, 0.85);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border-bottom: 1px solid rgba(210, 196, 187, 0.4);
+  box-shadow: 0 4px 30px rgba(50, 34, 20, 0.03);
+}
+
+/* Nav Link Underline Micro-interaction */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #775a19;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Custom Inputs focus styling */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Custom Image Cards zoom effect */
+.img-zoom-container img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-zoom-container:hover img {
+  transform: scale(1.05);
+}
+
+/* FAQ Accordion slide transition */
+.faq-content {
+  transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+}
+
+/* Toast Animations */
+@keyframes slide-in-toast {
+  from {
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+.toast-animate {
+  animation: slide-in-toast 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Material Outlined Icon Fill Variation */
+.icon-filled {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Custom Booking Result Grid Layout */
+.booking-result-card {
+  transition: var(--transition-smooth);
+}
+.booking-result-card:hover {
+  transform: translateY(-2px);
+}
